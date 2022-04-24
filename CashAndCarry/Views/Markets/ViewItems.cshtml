@@ -1,0 +1,124 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="form-outline m-4 ">
+    <input type="search" class="form-control" id="datatable-search-input" placeholder="Search">
+</div>
+
+<div class="d-flex p-4 flex-row justify-content-center">
+    <div>
+        <div class="border border-info rounded mr-3">
+            <img src="/images/categories/vegetable.jpg"  class="rounded " height="100px" width="100px">
+        </div>
+        <h5 class="text-success text-center">Vegetables</h5>
+    </div>
+
+    <!-- fruits -->
+    <div>
+        <div class="border border-info rounded mr-3 ml-3">
+            <img src="/images/categories/fruits.jpg"   class="rounded " height="100px" width="100px">
+        </div>
+        <h5 class="text-center">Fruits</h5>
+    </div>
+
+    <!-- Meat -->
+    <div>
+        <div class="border border-info rounded mr-3 ml-3">
+            <img src="/images/categories/meatAndEgg.jpg" class="rounded " height="100px" width="100px">
+        </div>
+        <h5 class="text-center">Meat&Eggs</h5>
+    </div>
+
+    <!-- bakery -->
+    <div>
+        <div class="border border-info rounded mr-3 ml-3">
+            <img src="/images/categories/bakery.png" class="rounded " height="100px" width="100px">
+        </div>
+        <h5 class="text-success text-center">Bakery</h5>
+    </div>
+
+    <!-- drinks -->
+    <div>
+        <div class="border border-info rounded mr-3 ml-3">
+            <img src="/images/categories/drinks.jpg" class="rounded " height="100px" width="100px">
+        </div>
+        <h5 class="text-success text-center">Drinks</h5>
+    </div>
+</div>
+
+<hr>
+<!-- End of categories -->
+
+@*start displaying items*@
+
+<div class="d-flex flex-wrap flex-md-nowrap">    <!--this is hidden for the item displayed after + is hit-->
+    <div id="displayItem" class="card m-2  d-none " style="width:35%; height:fit-content;border-radius: 25px;">
+        <img class="card-img-top" src="/images/supermarkets/supermarket1/items/carrot.jpg" alt="Super1">
+        <div class="card-body" style="border-radius: 25px 25px 0px 0px">
+            <h4 class="card-title">Fresh Carrot</h4>
+            <h4>Price: 18000Lbp/Kg</h4>
+            <h4>Description:</h4>
+            <p class="">
+                The carrot (Daucus carota) is a root vegetable often claimed to be the perfect health food.
+                It is crunchy, tasty, and highly nutritious. Carrots are a particularly good source of beta
+                carotene, fiber, vitamin K1, potassium, and antioxidants
+            </p>
+            <div class="">
+                <button onclick="removeQuantity()" class="btn border"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                <span id="quantity" class="bg-success rounded">0</span>
+                <button onclick="addQuantity()" class="btn border"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                <button href="#" class="btn btn-success rounded float-right">Add To Cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex ml-4 flex-wrap">    <!--displaying items-->
+        @for(int i=0;i<15;i++)
+            {
+        <div class="card m-2 rounded" style="width:200px; height: fit-content; ">
+            <img class="card-img-top" src="/images/supermarkets/supermarket1/items/carrot.jpg" alt="Super1">
+            <div class="card-body">
+                <h4 class="card-title">Fresh Carrot</h4>
+                <h4>Price: 18000Lbp/Kg</h4>
+                <p class="text-muted" style="text-decoration: line-through;">15000</p>
+                <div class="text-right">
+                    <button onclick="displayItem('displayItem')" class="btn border">
+                        <i class="fa fa-plus"
+                           aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+
+
+
+@*scripts *@
+
+
+<script>
+    function displayItem(id) {
+        var item = document.getElementById(id);
+        var displayItem = document.getElementById("displayItem");
+        displayItem.className = "card m-2 rounded";
+    }
+
+    function addQuantity() {
+        var displayQuantity = document.getElementById("quantity");
+        displayQuantity.innerHTML = parseInt(displayQuantity.innerHTML) +1;
+    }
+
+    function removeQuantity() {
+        var displayQuantity = document.getElementById("quantity");
+        var quan = parseInt(displayQuantity.innerHTML)
+        if (quan>0)
+            displayQuantity.innerHTML = quan - 1;
+    }
+</script>
+
+
+
+
