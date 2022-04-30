@@ -1,0 +1,127 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<style>
+    .bg-aliceblue {
+        background-color: #F0F8FF;
+    }
+</style>
+
+<h1>My Cart</h1>
+<div class="d-flex justify-content-around flex-wrap">
+    <div class="m-3 ">
+        <h4>Products</h4>
+        @for (int i = 0; i < 2; i++)
+        {
+            <div id="items-bought" class="m-2">
+                <div class="d-flex flex-row p-2 border-bottom ">
+                    <div class="p-2">
+                        <img src="/images/supermarkets/supermarket1/items/milk.jpg" width="75px" height="100px">
+                    </div>
+                    <div class="d-flex flex-column w-50 ">
+                        <p>Aria Dano Full Cream milk Powder instant</p>
+                        <div class="d-flex flex-row ">
+                            <h6 class="">15000 Lbp</h6>
+                            <button onclick="removeQuantity()" class="btn border-center bg-danger">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                            </button>
+                            <span id="quantity" class=" rounded w-50 text-center pt-2">0</span>
+                            <button onclick="addQuantity()" class="btn border-center bg-success">
+                                <i class="fa fa-plus"
+                               aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+
+        <!-- add more items -->
+        <div class="text-center m-5">
+            <button href="#" class="btn btn-success rounded ">Add More Items</button>
+        </div>
+    </div>
+
+
+    <!-- for info on the right -->
+    <div id="additional-info" class="p-4">
+        <table>
+            <tr>
+                <td>
+                    <h5 class="pl-5">Delivery Location </h5>
+                </td>
+                <td><i class="text-success pl-5">Change</i></td>
+            </tr>
+
+            <tr>
+                <td>
+                    <p class="pl-5 p-2"> BarElias, Bekaa, Mjaozub building</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h5 class="pl-5 p-2">Subtotal </h5>
+                </td>
+                <td>
+                    <p class="text-success pl-5 p-2">50000</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h5 class="pl-5 p-2">Delivery Charge </h5>
+                </td>
+                <td>
+                    <p class="text-success pl-5 p-2">20000</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <h5 class="pl-5 p-2">Total </h5>
+                </td>
+                <td>
+                    <p class="text-success pl-5 p-2">70000</p>
+                </td>
+            </tr>
+
+        </table>
+
+
+        <div class="d-flex flex-column pl-5 mt-5">
+            <h5 class="">Payment Method </h5>
+            <div class="text-center bg-aliceblue  pt-4 pb-4 rounded">
+                <b>Cash On Delivery</b>
+            </div>
+        </div>
+
+        <div class="text-center bg-success mt-5 ml-5  pt-4 pb-4 rounded">
+            <b>Place Order</b>
+            <i class="fa fa-arrow-right pl-5"></i>
+        </div>
+    </div>
+
+
+</div>
+
+
+@*scriptss*@
+<script>
+    function addQuantity() {
+        var displayQuantity = document.getElementById("quantity");
+        displayQuantity.innerHTML = parseInt(displayQuantity.innerHTML) + 1;
+    }
+
+    function removeQuantity() {
+        var displayQuantity = document.getElementById("quantity");
+        var quan = parseInt(displayQuantity.innerHTML)
+        if (quan > 0)
+            displayQuantity.innerHTML = quan - 1;
+    }
+</script>

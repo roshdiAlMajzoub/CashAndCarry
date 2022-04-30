@@ -19,5 +19,10 @@ namespace CashAndCarry.Controllers
         {
             return View();
         }
+
+        public IActionResult AddToCart()
+        {
+            return View();
+        }
     }
 }
