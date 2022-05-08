@@ -4,11 +4,11 @@
 @{
 }
 
-<section>
-    <div class="d-flex flex-row justify-content-center ">
+<section style="background-color:#D3D3D3">
+    <div class="d-flex flex-row justify-content-md-around" style="background-color:#D3D3D3">
         <div class="m-4">
             <form action="/">
-                <div class="form-group ">
+                <div class="form-group" style="width: 300px">
                     <select class="form-control  " id="location" name="location">
                         <option>Location</option>
                         <option>BarElias</option>
@@ -19,9 +19,9 @@
                 </div>
             </form>
         </div>
-        <div class="m-4 ">
+        <div class="m-4" >
             <div class="row">
-                <div class="form-outline">
+                <div class="form-outline" style="width: 900px">
                     <input type="search" id="form1" class="form-control h-100 " placeholder="Search" />
 
                 </div>
@@ -29,11 +29,7 @@
                     <i class="fa fa-search"></i>
                 </button>
             </div>
-
-
         </div>
-
-
     </div>
 </section>
 
@@ -41,19 +37,20 @@
 
 <section>
 
-    <div id="market-cards" class="d-flex justify-content-center flex-wrap">
+    <div id="market-cards" class="d-flex justify-content-around flex-wrap" style="background-color:#D3D3D3">
         @foreach (var market in Model)
         {
-            <div class="card p-4 m-4 " style="width:400px height:500px">
-                <img class="card-img-top" src="@market.Image" alt="Super1" style="width:100%">
+            <div class="card p-4 m-4 align-content-center align-items-center justify-content-center shadow" style="width:350px; height:500px;border-radius: 25px;">
+                <img class="card-img-top" src="@market.Image" alt="Super1" style="width:100%; ">
                 <div class="card-body">
-                    <h4 class="card-title">@market.Name</h4>
-                    <p class="card-text">
+                    <h4 class="card-title text-center" style="color:#6495ED;font-family:sans-serif; font-weight:bold">@market.Name</h4>
+                    <p class="card-text text-danger  text-center" style="color:	#8B0000; font-weight:bold">
                         Opens: @market.Open
                     </p>
-                    <p>Closes: @market.Close</p>
-                    <a asp-action="ViewItems" class="btn btn-primary">Start Shopping</a>
+                    <p class="text-danger text-center" style="color:#8B0000; font-weight:bold">Closes: @market.Close</p>
+                    
                 </div>
+                <a asp-action="ViewItems" class="btn btn-primary btn-block gradient-custom-4 link-light" style="border-radius: 25px;">Start Shopping</a>
             </div>
         }
     </div>

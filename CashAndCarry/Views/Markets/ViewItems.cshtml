@@ -7,42 +7,42 @@
     <input type="search" class="form-control" id="datatable-search-input" placeholder="Search">
 </div>
 
-<div class="d-flex p-4 flex-row justify-content-center">
+<div class="d-flex p-4 flex-row justify-content-around">
     <div>
-        <div class="border border-info rounded mr-3">
-            <img src="/images/categories/vegetable.jpg"  class="rounded " height="100px" width="100px">
+        <div class="border border-info d-block mx-auto" style="border-radius: 10px 10px;">
+            <img src="/images/categories/vegetable.jpg"  class="rounded-3 " height="50px" width="50px">
         </div>
         <h5 class="text-success text-center">Vegetables</h5>
     </div>
 
     <!-- fruits -->
     <div>
-        <div class="border border-info rounded mr-3 ml-3">
-            <img src="/images/categories/fruits.jpg"   class="rounded " height="100px" width="100px">
+        <div class="border border-info" style="border-radius: 10px;">
+            <img src="/images/categories/fruits.jpg"   class="rounded-3 " height="50px" width="50px">
         </div>
         <h5 class="text-center">Fruits</h5>
     </div>
 
     <!-- Meat -->
     <div>
-        <div class="border border-info rounded mr-3 ml-3">
-            <img src="/images/categories/meatAndEgg.jpg" class="rounded " height="100px" width="100px">
+        <div class="border border-info" style="border-radius: 10px;">
+            <img src="/images/categories/meatAndEgg.jpg" class="rounded-3 " height="50px" width="50px">
         </div>
         <h5 class="text-center">Meat&Eggs</h5>
     </div>
 
     <!-- bakery -->
     <div>
-        <div class="border border-info rounded mr-3 ml-3">
-            <img src="/images/categories/bakery.png" class="rounded " height="100px" width="100px">
+        <div class="border border-info rounded-3" style="border-radius: 10px 10px;">
+            <img src="/images/categories/bakery.png" class="rounded-3 " height="50px" width="50px">
         </div>
         <h5 class="text-success text-center">Bakery</h5>
     </div>
 
     <!-- drinks -->
     <div>
-        <div class="border border-info rounded mr-3 ml-3">
-            <img src="/images/categories/drinks.jpg" class="rounded " height="100px" width="100px">
+        <div class="border border-info rounded-3" style="border-radius: 10px 10px;">
+            <img src="/images/categories/drinks.jpg" class="rounded-3 " height="50px" width="50px">
         </div>
         <h5 class="text-success text-center">Drinks</h5>
     </div>
@@ -54,7 +54,7 @@
 @*start displaying items*@
 
 <div class="d-flex flex-wrap flex-md-nowrap">    <!--this is hidden for the item displayed after + is hit-->
-    <div id="displayItem" class="card m-2  d-none " style="width:35%; height:fit-content;border-radius: 25px;">
+    @* <div id="displayItem" class="card m-2  d-none " style="width:35%; height:fit-content;border-radius: 25px;">
         <img class="card-img-top" src="/images/supermarkets/supermarket1/items/carrot.jpg" alt="Super1">
         <div class="card-body" style="border-radius: 25px 25px 0px 0px">
             <h4 class="card-title">Fresh Carrot</h4>
@@ -73,21 +73,34 @@
             </div>
         </div>
     </div>
-    <div class="d-flex ml-4 flex-wrap">    <!--displaying items-->
+    *@
+    <div class="d-flex ml-4 flex-wrap justify-content-around ">    <!--displaying items-->
         @for(int i=0;i<15;i++)
             {
-        <div class="card m-2 rounded" style="width:200px; height: fit-content; ">
+        <div class="card m-2 shadow-lg p-2" id="item" style="width:200px; height: fit-content; border-radius: 25px; ">
             <img class="card-img-top" src="/images/supermarkets/supermarket1/items/carrot.jpg" alt="Super1">
             <div class="card-body">
                 <h4 class="card-title">Fresh Carrot</h4>
-                <h4>Price: 18000Lbp/Kg</h4>
+                <h7 style="color:LimeGreen; font-weight:bold;">18000Lbp/Kg</h7>
                 <p class="text-muted" style="text-decoration: line-through;">15000</p>
+                <div class="collapse multi-collapse" id="itemDescription">
+                    <h7 style="color:LimeGreen; font-weight:bold;">Description:</h7>
+                    <p class="">
+                        The carrot (Daucus carota) is a root vegetable often claimed to be the perfect health food.
+                    </p>
+                    <div class="">
+                        <button onclick="removeQuantity()" class="btn border btn-outline-success"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                        <span id="quantity" class="bg-success rounded">0</span>
+                        <button onclick="addQuantity()" class="btn border btn-outline-success"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    </div>
+                    <a  class="btn btn-sm btn-success rounded-lg float-left" asp-action="AddToCart">Add To Cart</a>
+                </div>
                 <div class="text-right">
-                    <button onclick="displayItem('displayItem')" class="btn border">
-                        <i class="fa fa-plus"
+                    <button class="btn btn-success border" data-toggle="collapse" data-target="#itemDescription" aria-expanded="false">
+                        <i class="fa fa-info "
                            aria-hidden="true"></i>
                     </button>
-                </div>
+                </div>          
             </div>
         </div>
         }
