@@ -30,38 +30,20 @@
 </head>
 <body>
     <header>
-        <nav>
-            <div class="row p-2 aqua ">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="row container-fluid aqua ">
                 <div class="col-  ml-3 p-1 mt-1 mb-1">
-                    <img src="/images/logo.png" runat="server" class="rounded-circle" height="70px" width="70px">
+                    <img src="/images/cash-carry-logo.png" runat="server" class="rounded-circle" height="70px" width="70px">
                 </div>
                 <div class="col align-self-center   p-1">
                     <h1>CASH & CARRY</h1>
                 </div>
-                <div class="col text-right mr-3 mt-1 mb-1">
+                @*<div class="col text-right mr-3 mt-1 mb-1">
                     <img src="/images/profile.jpg" runat="server" class="rounded-circle" width="70px" height="70px">
-                </div>
+                </div>*@
+                <partial name="_LoginPartial" />
             </div>
         </nav>
-        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CashAndCarry</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-            <ul class="navbar-nav flex-grow-1">
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-            </li>
-            </ul>
-            </div>
-            </div>
-            </nav>*@
     </header>
 
     <main role="main" class="pb-3">
@@ -72,7 +54,7 @@
 
     <footer class="text-center p-2" style="background-color: #20B2AA;">
         <div class=" d-flex justify-content-center">
-            <img src="/images/logo.png" class="rounded-circle" height="70px" width="70px">
+            <img src="/images/cash-carry-logo.png" class="rounded-circle" height="70px" width="70px">
             <h1 class="align-self-center">CASH&CARRY</h1>
 
         </div>
